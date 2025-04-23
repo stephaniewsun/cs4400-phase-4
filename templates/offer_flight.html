@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Offer Flight</title>
+</head>
+<body>
+    <h1>Offer a New Flight</h1>
+    <form action="/offer" method="post">
+        <label>Flight ID:</label><br>
+        <input type="text" name="flightID" required><br>
+
+        <label>Route ID:</label><br>
+        <input type="text" name="routeID" required><br>
+
+        <label>Support Airline (optional):</label><br>
+        <input type="text" name="support_airline"><br>
+
+        <label>Support Tail Number (optional):</label><br>
+        <input type="text" name="support_tail"><br>
+
+        <label>Progress (starting point index):</label><br>
+        <input type="number" name="progress" required><br>
+
+        <label>Next Time (HH:MM:SS):</label><br>
+        <input type="text" name="next_time" required><br>
+
+        <label>Cost:</label><br>
+        <input type="number" name="cost" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

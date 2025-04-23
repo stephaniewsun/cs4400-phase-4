@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People in the Air</title>
+</head>
+<body>
+    <h1>People in the Air</h1>
+    <ul>
+        {% for group in people %}
+            <li>
+                <strong>From:</strong> {{ group.departing_from }} |
+                <strong>To:</strong> {{ group.arriving_at }} |
+                <strong>Pilots:</strong> {{ group.num_pilots }} |
+                <strong>Passengers:</strong> {{ group.num_passengers }} |
+                <strong>People:</strong> {{ group.person_list }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

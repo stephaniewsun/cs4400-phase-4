@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Route Summary</title>
+</head>
+<body>
+    <h1>Route Summary</h1>
+    <ul>
+        {% for r in routes %}
+            <li>
+                <strong>Route:</strong> {{ r.route }} |
+                <strong># Legs:</strong> {{ r.num_legs }} |
+                <strong>Legs:</strong> {{ r.leg_sequence }} |
+                <strong>Distance:</strong> {{ r.route_length }} |
+                <strong># Flights:</strong> {{ r.num_flights }} |
+                <strong>Flights:</strong> {{ r.flight_list }} |
+                <strong>Path:</strong> {{ r.airport_sequence }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People on the Ground</title>
+</head>
+<body>
+    <h1>People on the Ground</h1>
+    <ul>
+        {% for group in people %}
+            <li>
+                <strong>Airport:</strong> {{ group.departing_from }} - {{ group.airport_name }} ({{ group.city }}, {{ group.state }}) |
+                <strong>Pilots:</strong> {{ group.num_pilots }} |
+                <strong>Passengers:</strong> {{ group.num_passengers }} |
+                <strong>People:</strong> {{ group.person_list }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alternative Airports</title>
+</head>
+<body>
+    <h1>Alternative Airports</h1>
+    <ul>
+        {% for airport in airports %}
+            <li>
+                <strong>City:</strong> {{ airport.city }}, 
+                <strong>State:</strong> {{ airport.state }}, 
+                <strong>Country:</strong> {{ airport.country }} |
+                <strong># Airports:</strong> {{ airport.num_airports }} |
+                <strong>Codes:</strong> {{ airport.aiport_code_list }} |
+                <strong>Names:</strong> {{ airport.airport_name_list }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
