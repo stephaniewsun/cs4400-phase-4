@@ -1,19 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head><title>Add Airplane</title></head>
+<head>
+    <title>Add Airplane</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        .checkbox-group label {
+            font-weight: normal;
+            margin-right: 20px;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
 <body>
-    <h2>Add Airplane</h2>
+    <h1>Add Airplane</h1>
     <form method="post">
-        Airline ID: <input name="airlineID"><br>
-        Tail Number: <input name="tail_num"><br>
-        Seat Capacity: <input name="seat_capacity" type="number"><br>
-        Speed: <input name="speed" type="number"><br>
-        Location ID: <input name="locationID"><br>
-        Plane Type (Airbus/Boeing/Other): <input name="plane_type"><br>
-        Maintenanced: <input type="checkbox" name="maintenanced"><br>
-        Model (if Boeing): <input name="model"><br>
-        Neo (if Airbus): <input type="checkbox" name="neo"><br>
-        <button type="submit">Submit</button>
+        <label for="airlineID">Airline ID</label>
+        <input type="text" name="airlineID" id="airlineID">
+
+        <label for="tail_num">Tail Number</label>
+        <input type="text" name="tail_num" id="tail_num">
+
+        <label for="seat_capacity">Seat Capacity</label>
+        <input type="number" name="seat_capacity" id="seat_capacity">
+
+        <label for="speed">Speed</label>
+        <input type="number" name="speed" id="speed">
+
+        <label for="locationID">Location ID</label>
+        <input type="text" name="locationID" id="locationID">
+
+        <label for="plane_type">Plane Type</label>
+        <select name="plane_type" id="plane_type">
+            <option value="">--Select Type--</option>
+            <option value="Boeing">Boeing</option>
+            <option value="Airbus">Airbus</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="model">Model</label>
+        <input type="text" name="model" id="model">
+
+        <div class="checkbox-group">
+            <input type="checkbox" name="neo" id="neo">
+            <label for="neo">NEO</label>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" name="maintenanced" id="maintenanced">
+            <label for="maintenanced">Maintenanced</label>
+        </div>
+
+        <div class="buttons">
+            <button type="submit">Add</button>
+            <button type="button" onclick="window.location.href='/'">Cancel</button>
+        </div>
     </form>
 </body>
 </html>

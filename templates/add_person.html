@@ -2,21 +2,66 @@
 <html>
 <head>
     <title>Add Person</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; }
+        form { max-width: 500px; margin: auto; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"], input[type="number"] {
+            width: 100%; padding: 8px; box-sizing: border-box;
+        }
+        .section-title { margin-top: 30px; font-size: 1.2em; font-weight: bold; }
+        .radio-group { margin-top: 10px; }
+        .radio-group label { display: inline; margin-right: 20px; font-weight: normal; }
+        button {
+            margin-top: 30px; padding: 10px 20px;
+            background-color: #4CAF50; color: white; border: none;
+            font-size: 1em; cursor: pointer;
+        }
+    </style>
+    <script>
+        function toggleFields() {
+            const isPilot = document.getElementById("role-pilot").checked;
+            document.getElementById("pilot-fields").style.display = isPilot ? "block" : "none";
+            document.getElementById("passenger-fields").style.display = !isPilot ? "block" : "none";
+        }
+    </script>
 </head>
 <body>
     <h1>Add Person</h1>
     <form method="post">
-        ID: <input name="personID"><br>
-        First Name: <input name="first_name"><br>
-        Last Name: <input name="last_name"><br>
-        Location ID: <input name="locationID"><br>
-        Tax ID (for pilots): <input name="taxID"><br>
-        Experience (for pilots): <input name="experience"><br>
-        Miles (for passengers): <input name="miles"><br>
-        Funds (for passengers): <input name="funds"><br>
+        <label for="personID">Person ID</label>
+        <input type="text" name="personID" required>
+
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" required>
+
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name">
+
+        <label for="locationID">Location ID</label>
+        <input type="text" name="locationID" required>
+
+        <div class="section-title">Role</div>
+        <div class="radio-group">
+            <label><input type="radio" name="role" id="role-pilot" value="pilot" onclick="toggleFields()" required>Pilot</label>
+            <label><input type="radio" name="role" id="role-passenger" value="passenger" onclick="toggleFields()">Passenger</label>
+        </div>
+
+        <div id="pilot-fields" style="display:none;">
+            <label for="taxID">Tax ID</label>
+            <input type="text" name="taxID">
+            <label for="experience">Experience</label>
+            <input type="number" name="experience" min="0">
+        </div>
+
+        <div id="passenger-fields" style="display:none;">
+            <label for="miles">Miles</label>
+            <input type="number" name="miles" min="0">
+            <label for="funds">Funds</label>
+            <input type="number" name="funds" min="0">
+        </div>
+
         <button type="submit">Submit</button>
     </form>
 </body>
 </html>
-
-

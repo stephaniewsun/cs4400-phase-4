@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head><title>Add Airport</title></head>
+<head>
+    <title>Add Airport</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; }
+        form { max-width: 500px; margin: auto; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"] {
+            width: 100%; padding: 8px; box-sizing: border-box;
+        }
+        button {
+            margin-top: 30px; padding: 10px 20px;
+            background-color: #4CAF50; color: white; border: none;
+            font-size: 1em; cursor: pointer;
+        }
+    </style>
+</head>
 <body>
-    <h2>Add Airport</h2>
+    <h1>Add Airport</h1>
     <form method="post">
-        Airport ID: <input name="airportID"><br>
-        Name: <input name="airport_name"><br>
-        City: <input name="city"><br>
-        State: <input name="state"><br>
-        Country (3-letter): <input name="country"><br>
-        Location ID: <input name="locationID"><br>
-        <button type="submit">Add Airport</button>
+        <label for="airportID">Airport ID (3-letter code)</label>
+        <input type="text" name="airportID" maxlength="3" required>
+
+        <label for="airport_name">Airport Name</label>
+        <input type="text" name="airport_name" required>
+
+        <label for="city">City</label>
+        <input type="text" name="city" required>
+
+        <label for="state">State</label>
+        <input type="text" name="state" required>
+
+        <label for="country">Country (3-letter code)</label>
+        <input type="text" name="country" maxlength="3" required>
+
+        <label for="locationID">Location ID</label>
+        <input type="text" name="locationID" required>
+
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>

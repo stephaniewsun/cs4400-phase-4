@@ -2,20 +2,70 @@
 <html>
 <head>
     <title>Alternative Airports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .back-button {
+            margin-top: 30px;
+        }
+        .back-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
     <h1>Alternative Airports</h1>
-    <ul>
-        {% for airport in airports %}
-            <li>
-                <strong>City:</strong> {{ airport.city }}, 
-                <strong>State:</strong> {{ airport.state }}, 
-                <strong>Country:</strong> {{ airport.country }} |
-                <strong># Airports:</strong> {{ airport.num_airports }} |
-                <strong>Codes:</strong> {{ airport.aiport_code_list }} |
-                <strong>Names:</strong> {{ airport.airport_name_list }}
-            </li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th># Airports</th>
+                <th>Codes</th>
+                <th>Names</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for airport in airports %}
+            <tr>
+                <td>{{ airport.city }}</td>
+                <td>{{ airport.state }}</td>
+                <td>{{ airport.country }}</td>
+                <td>{{ airport.num_airports }}</td>
+                <td>{{ airport.aiport_code_list }}</td>
+                <td>{{ airport.airport_name_list }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="back-button">
+        <button onclick="window.location.href='/'">Back</button>
+    </div>
 </body>
 </html>

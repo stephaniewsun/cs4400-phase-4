@@ -2,14 +2,51 @@
 <html>
 <head>
     <title>Flight Landing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        form {
+            font-size: 18px;
+            max-width: 500px;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 30px;
+            padding: 10px 25px;
+            font-size: 16px;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Flight Landing</h1>
-    <form action="/land" method="post">
-        <label>Flight ID:</label><br>
-        <input type="text" name="flightID" required><br><br>
-        <input type="submit" value="Land Flight">
+    <form method="post">
+        <label for="flightID">Flight ID</label>
+        <input type="text" name="flightID" required>
+
+        <button type="submit">Land</button>
     </form>
+
+    <div class="back-button">
+        <button onclick="window.location.href='/'">Back</button>
+    </div>
 </body>
 </html>
 

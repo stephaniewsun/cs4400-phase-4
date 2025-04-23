@@ -2,32 +2,62 @@
 <html>
 <head>
     <title>Offer Flight</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 600px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 25px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Offer a New Flight</h1>
-    <form action="/offer" method="post">
-        <label>Flight ID:</label><br>
-        <input type="text" name="flightID" required><br>
+    <h1>Offer Flight</h1>
+    <form method="POST">
+        <label for="flightID">Flight ID</label>
+        <input type="text" name="flightID" id="flightID" required>
 
-        <label>Route ID:</label><br>
-        <input type="text" name="routeID" required><br>
+        <label for="routeID">Route ID</label>
+        <input type="text" name="routeID" id="routeID" required>
 
-        <label>Support Airline (optional):</label><br>
-        <input type="text" name="support_airline"><br>
+        <label for="support_airline">Support Airline (Optional)</label>
+        <input type="text" name="support_airline" id="support_airline">
 
-        <label>Support Tail Number (optional):</label><br>
-        <input type="text" name="support_tail"><br>
+        <label for="support_tail">Support Tail (Optional)</label>
+        <input type="text" name="support_tail" id="support_tail">
 
-        <label>Progress (starting point index):</label><br>
-        <input type="number" name="progress" required><br>
+        <label for="progress">Progress</label>
+        <input type="number" name="progress" id="progress" required>
 
-        <label>Next Time (HH:MM:SS):</label><br>
-        <input type="text" name="next_time" required><br>
+        <label for="next_time">Next Time (YYYY-MM-DD HH:MM:SS)</label>
+        <input type="text" name="next_time" id="next_time" required>
 
-        <label>Cost:</label><br>
-        <input type="number" name="cost" required><br><br>
+        <label for="cost">Cost</label>
+        <input type="number" name="cost" id="cost" required>
 
-        <input type="submit" value="Submit">
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
