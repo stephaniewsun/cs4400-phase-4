@@ -2,13 +2,27 @@
 <html>
 <head>
     <title>Recycle Crew</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; }
+        form { max-width: 500px; margin: auto; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"] {
+            width: 100%; padding: 8px; box-sizing: border-box;
+        }
+        button {
+            margin-top: 30px; padding: 10px 20px;
+            font-size: 1em; cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Recycle Crew</h1>
     <form action="/recycle" method="post">
-        <label>Flight ID:</label><br>
-        <input type="text" name="flightID" required><br><br>
-        <input type="submit" value="Recycle">
+        <label for="flightID">Flight ID</label>
+        <input type="text" name="flightID" id="flightID" required>
+
+        <button type="submit">Recycle</button>
     </form>
 </body>
 </html>
+

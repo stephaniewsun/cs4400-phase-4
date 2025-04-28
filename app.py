@@ -51,12 +51,17 @@ def add_airplane():
                 model,
                 neo_value
             ])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "success"})
         except Exception as e:
             return jsonify({"error": str(e)})
     return render_template("add_airplane.html")
-    
+
 @app.route("/add_airport", methods=["GET", "POST"])
 def add_airport():
     if request.method == "POST":
@@ -66,6 +71,11 @@ def add_airport():
                 data["airportID"], data["airport_name"], data["city"],
                 data["state"], data["country"], data["locationID"]
             ])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "airport added"})
         except Exception as e:
@@ -86,6 +96,11 @@ def add_person_form():
                 int(data["miles"]) if data.get("miles") else None,
                 int(data["funds"]) if data.get("funds") else None
             ])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "person added"})
         except Exception as e:
@@ -101,6 +116,11 @@ def license():
                 data["personID"],
                 data["license"]
             ])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "license granted or revoked"})
         except Exception as e:
@@ -121,6 +141,11 @@ def offer():
                 data["next_time"],
                 int(data["cost"])
             ])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "flight offered"})
         except Exception as e:
@@ -136,6 +161,11 @@ def assign():
                 data["flightID"],
                 data["personID"]
             ])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "pilot assigned"})
         except Exception as e:
@@ -148,6 +178,11 @@ def board():
         data = request.form
         try:
             cursor.callproc("passengers_board", [data["flightID"]])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "passengers boarded"})
         except Exception as e:
@@ -159,6 +194,11 @@ def takeoff():
         data = request.form
         try:
             cursor.callproc("flight_takeoff", [data["flightID"]])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "flight took off"})
         except Exception as e:
@@ -170,6 +210,11 @@ def land():
         data = request.form
         try:
             cursor.callproc("flight_landing", [data["flightID"]])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "flight landed"})
         except Exception as e:
@@ -181,6 +226,11 @@ def disembark():
         data = request.form
         try:
             cursor.callproc("passengers_disembark", [data["flightID"]])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "passengers disembarked"})
         except Exception as e:
@@ -192,6 +242,11 @@ def recycle():
         data = request.form
         try:
             cursor.callproc("recycle_crew", [data["flightID"]])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "crew recycled"})
         except Exception as e:
@@ -203,6 +258,11 @@ def retire():
         data = request.form
         try:
             cursor.callproc("retire_flight", [data["flightID"]])
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "flight retired"})
         except Exception as e:
@@ -213,6 +273,11 @@ def simulate_cycle():
     if request.method == "POST":
         try:
             cursor.callproc("simulation_cycle")
+            for res in cursor.stored_results():
+                output = res.fetchall()
+                if output and "error_message" in output[0]:
+                    return jsonify({"status": "failed", "error": output[0]["error_message"]})
+
             db.commit()
             return jsonify({"status": "simulation cycle executed"})
         except Exception as e:

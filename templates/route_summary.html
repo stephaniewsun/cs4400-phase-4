@@ -2,21 +2,78 @@
 <html>
 <head>
     <title>Route Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077cc;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="nav">
+        <a href="/">Home</a>
+    </div>
+
     <h1>Route Summary</h1>
-    <ul>
-        {% for r in routes %}
-            <li>
-                <strong>Route:</strong> {{ r.route }} |
-                <strong># Legs:</strong> {{ r.num_legs }} |
-                <strong>Legs:</strong> {{ r.leg_sequence }} |
-                <strong>Distance:</strong> {{ r.route_length }} |
-                <strong># Flights:</strong> {{ r.num_flights }} |
-                <strong>Flights:</strong> {{ r.flight_list }} |
-                <strong>Path:</strong> {{ r.airport_sequence }}
-            </li>
-        {% endfor %}
-    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Route</th>
+                <th># Legs</th>
+                <th>Legs</th>
+                <th>Distance</th>
+                <th># Flights</th>
+                <th>Flights</th>
+                <th>Path</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in routes %}
+            <tr>
+                <td>{{ r.route }}</td>
+                <td>{{ r.num_legs }}</td>
+                <td>{{ r.leg_sequence }}</td>
+                <td>{{ r.route_length }}</td>
+                <td>{{ r.num_flights }}</td>
+                <td>{{ r.flight_list }}</td>
+                <td>{{ r.airport_sequence }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

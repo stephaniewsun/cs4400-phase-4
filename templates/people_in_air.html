@@ -2,19 +2,74 @@
 <html>
 <head>
     <title>People in the Air</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077cc;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="nav">
+        <a href="/">Home</a>
+    </div>
+
     <h1>People in the Air</h1>
-    <ul>
-        {% for group in people %}
-            <li>
-                <strong>From:</strong> {{ group.departing_from }} |
-                <strong>To:</strong> {{ group.arriving_at }} |
-                <strong>Pilots:</strong> {{ group.num_pilots }} |
-                <strong>Passengers:</strong> {{ group.num_passengers }} |
-                <strong>People:</strong> {{ group.person_list }}
-            </li>
-        {% endfor %}
-    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Pilots</th>
+                <th>Passengers</th>
+                <th>People</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in people %}
+            <tr>
+                <td>{{ group.departing_from }}</td>
+                <td>{{ group.arriving_at }}</td>
+                <td>{{ group.num_pilots }}</td>
+                <td>{{ group.num_passengers }}</td>
+                <td>{{ group.person_list }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

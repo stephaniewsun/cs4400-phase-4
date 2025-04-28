@@ -19,7 +19,7 @@
             margin-top: 15px;
             font-size: 16px;
         }
-        input, select {
+        input {
             width: 100%;
             padding: 10px;
             font-size: 14px;
@@ -37,14 +37,10 @@
     <h1>Grant or Revoke Pilot License</h1>
     <form method="POST">
         <label for="personID">Pilot ID</label>
-        <input type="text" name="personID" id="personID" required>
+        <input type="text" id="personID" name="personID" required>
 
         <label for="license">License</label>
-        <select name="license" id="license" required>
-            <option value="" disabled selected>Select Action</option>
-            <option value="grant">Grant</option>
-            <option value="revoke">Revoke</option>
-        </select>
+        <input type="text" id="license" name="license" required>
 
         <button type="submit">Submit</button>
     </form>

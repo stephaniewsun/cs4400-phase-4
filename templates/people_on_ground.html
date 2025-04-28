@@ -2,18 +2,77 @@
 <html>
 <head>
     <title>People on the Ground</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077cc;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="nav">
+        <a href="/">Home</a>
+    </div>
+
     <h1>People on the Ground</h1>
-    <ul>
-        {% for group in people %}
-            <li>
-                <strong>Airport:</strong> {{ group.departing_from }} - {{ group.airport_name }} ({{ group.city }}, {{ group.state }}) |
-                <strong>Pilots:</strong> {{ group.num_pilots }} |
-                <strong>Passengers:</strong> {{ group.num_passengers }} |
-                <strong>People:</strong> {{ group.person_list }}
-            </li>
-        {% endfor %}
-    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Airport</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Pilots</th>
+                <th>Passengers</th>
+                <th>People</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in people %}
+            <tr>
+                <td>{{ group.departing_from }} - {{ group.airport_name }}</td>
+                <td>{{ group.city }}</td>
+                <td>{{ group.state }}</td>
+                <td>{{ group.num_pilots }}</td>
+                <td>{{ group.num_passengers }}</td>
+                <td>{{ group.person_list }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
+
