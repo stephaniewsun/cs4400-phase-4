@@ -32,9 +32,9 @@ def add_airplane():
         plane_type = data.get("plane_type") or None
         model = data.get("model") or None
         neo = data.get("neo")
-        neo_value = True if neo == "on" else None
+        neo_value = True if neo == "on" else False
 
-        if plane_type in ["Airbus", "Boeing"]:
+        if plane_type in ["Airbus"]:
             maintenanced = None
         else:
             maintenanced = True if data.get("maintenanced") == "on" else False
