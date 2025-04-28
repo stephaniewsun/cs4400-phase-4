@@ -1,7 +1,0 @@
-text
-
-
-
-git add <filename>
-git commit -m "im commiting again"
-git push
