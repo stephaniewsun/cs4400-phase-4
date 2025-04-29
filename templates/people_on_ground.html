@@ -52,22 +52,30 @@
     <table>
         <thead>
             <tr>
+                <th>Departing From</th>
                 <th>Airport</th>
+                <th>Airport Name</th>
                 <th>City</th>
                 <th>State</th>
-                <th>Pilots</th>
-                <th>Passengers</th>
-                <th>People</th>
+                <th>Country</th>
+                <th>Number of Pilots</th>
+                <th>Number of Passengers</th>
+                <th>Joint Pilots and Passengers</th>
+                <th>Person List</th>
             </tr>
         </thead>
         <tbody>
             {% for group in people %}
             <tr>
-                <td>{{ group.departing_from }} - {{ group.airport_name }}</td>
+                <td>{{ group.departing_from }}</td>
+                <td>{{ group.airport }}</td>
+                <td>{{ group.airport_name }}</td>
                 <td>{{ group.city }}</td>
                 <td>{{ group.state }}</td>
+                <td>{{ group.country }}</td>
                 <td>{{ group.num_pilots }}</td>
                 <td>{{ group.num_passengers }}</td>
+                <td>{{ group.joint_pilots_passengers }}</td>
                 <td>{{ group.person_list }}</td>
             </tr>
             {% endfor %}

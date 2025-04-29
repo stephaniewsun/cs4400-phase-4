@@ -52,11 +52,17 @@
     <table>
         <thead>
             <tr>
-                <th>From</th>
-                <th>To</th>
-                <th>Pilots</th>
-                <th>Passengers</th>
-                <th>People</th>
+                <th>Departing From</th>
+                <th>Arriving At</th>
+                <th>Number of Airplanes</th>
+                <th>Airplane List</th>
+                <th>Flight List</th>
+                <th>Earliest Arrival</th>
+                <th>Latest Arrival</th>
+                <th>Number of Pilots</th>
+                <th>Number of Passengers</th>
+                <th>Join Pilot and Passengers</th>
+                <th>People List</th>
             </tr>
         </thead>
         <tbody>
@@ -64,8 +70,14 @@
             <tr>
                 <td>{{ group.departing_from }}</td>
                 <td>{{ group.arriving_at }}</td>
+                <td>{{ group.num_airplanes }}</td>
+                <td>{{ group.airplane_list }}</td>
+                <td>{{ group.flight_list }}</td>
+                <td>{{ group.earliest_arrival }}</td>
+                <td>{{ group.latest_arrival }}</td>
                 <td>{{ group.num_pilots }}</td>
                 <td>{{ group.num_passengers }}</td>
+                <td>{{ group.joint_pilots_passengers }}</td>
                 <td>{{ group.person_list }}</td>
             </tr>
             {% endfor %}

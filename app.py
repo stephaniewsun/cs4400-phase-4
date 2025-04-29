@@ -32,7 +32,10 @@ def add_airplane():
         plane_type = data.get("plane_type") or None
         model = data.get("model") or None
         neo = data.get("neo")
-        neo_value = True if neo == "on" else False
+        if plane_type in ["Boeing"]:
+            neo_value=None
+        else:
+            neo_value = True if neo == "on" else False
 
         if plane_type in ["Airbus"]:
             maintenanced = None
@@ -66,10 +69,20 @@ def add_airplane():
 def add_airport():
     if request.method == "POST":
         data = request.form
+
+        # Handle locationID
+        locationID = data.get("locationID")
+        if locationID == '':
+            locationID = None  # important: None will translate to SQL NULL
+
         try:
             cursor.callproc("add_airport", [
-                data["airportID"], data["airport_name"], data["city"],
-                data["state"], data["country"], data["locationID"]
+                data["airportID"],
+                data["airport_name"],
+                data["city"],
+                data["state"],
+                data["country"],
+                locationID  # cleaned variable here
             ])
             for res in cursor.stored_results():
                 output = res.fetchall()
@@ -81,6 +94,8 @@ def add_airport():
         except Exception as e:
             return jsonify({"error": str(e)})
     return render_template("add_airport.html")
+
+
 
 @app.route("/add_person", methods=["GET", "POST"])
 def add_person_form():
